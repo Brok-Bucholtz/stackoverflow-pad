@@ -1,0 +1,16 @@
+load("@npm//webpack-cli:index.bzl", webpack = "webpack_cli")
+
+webpack(
+    name = "webpack_build",
+    args = [
+        "-o",
+        "$(@D)",
+    ],
+    data = [
+        ":babel.config.js",
+        ":src",
+        ":webpack.config.js",
+        "@npm//:node_modules",
+    ],
+    output_dir = True,
+)
